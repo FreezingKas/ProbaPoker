@@ -14283,16 +14283,19 @@ et ce afin de proposer un algorithme qui nous permettraient d'évaluer les possi
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="SOMMAIRE">SOMMAIRE<a class="anchor-link" href="#SOMMAIRE">&#182;</a></h1><hr>
 <ol>
-<li>Règle du poker</li>
+<li>Règles du poker</li>
 <li>Lexique</li>
 <li>Probbilité simple</li>
+<li>Outs</li>
+<li>Cote du Pot</li>
+<li>Équité</li>
 </ol>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="1)-R&#232;gle-du-poker-(Texas-hold'em)">1) R&#232;gle du poker (Texas hold'em)<a class="anchor-link" href="#1)-R&#232;gle-du-poker-(Texas-hold'em)">&#182;</a></h1><hr>
+<h1 id="1)-R&#232;gles-du-poker-(Texas-hold'em)">1) R&#232;gles du poker (Texas hold'em)<a class="anchor-link" href="#1)-R&#232;gles-du-poker-(Texas-hold'em)">&#182;</a></h1><hr>
 <p>Comme son nom l’indique, le texas hold’em a pour origine le Texas.
 C’est une variante du poker, la plus jouée, notamment lors des plus gros tournois de poker, car elle ne possède pas de limite de mise.</p>
 <p>Le jeu se joue de 2 à 10 joueurs.</p>
@@ -14300,7 +14303,7 @@ C’est une variante du poker, la plus jouée, notamment lors des plus gros tour
 <p>Chaque début de partie, tous les joueurs reçoivent 2 cartes qu’ils cachent au reste de la table. Dans un second temps, 3 cartes visibles sont déposées au centre de la table.</p>
 <p>Progressivement, à chaque tour de table, 1 carte sera ajoutée au centre de la table, jusqu’à atteindre le nombre de 5 au maximum.
 Un tour n’a pas de durée définie, une partie peut se terminer dès le premier tour si les joueurs souhaitent, on appelle cela un “fold”.</p>
-<p>Lorsque 3 cartes sont en jeu, on appelle cela un “flop”, avec 4 un “turn” et avec 5 une “river”.
+<p>Lorsque 3 cartes sont en jeu (au centre de la table), on appelle cela un “flop”, avec 4 un “turn” et avec 5 une “river”.
 Si après la “river” plusieurs joueurs sont encore en jeu, on entre dans la phase du “showdown”, c’est la meilleure main qui remporte le pot.</p>
 <p>En plus de cela, chaque joueur possède des jetons représentant une certaine somme d’argent. Chaque tour, un joueur peut soit “suivre”, soit “miser” ou soit “se coucher”.</p>
 <p>Soit il “suit” et met en jeu la somme d’argent nécessaire pour continuer le jeu, soit il “mise” et mets plus que nécessaire pour forcer les autres joueurs à mettre autant, soit il “se couche” et se retire de la partie en cours. Si le joueur mise tous ses jetons, on appelle cela un “tapis”. Si un joueur ne possède plus de jetons, il perd.</p>
@@ -14310,7 +14313,7 @@ Si après la “river” plusieurs joueurs sont encore en jeu, on entre dans la 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="2)-Lexique-du-poker">2) Lexique du poker<a class="anchor-link" href="#2)-Lexique-du-poker">&#182;</a></h1><hr>
-<p><em>Au poker il y a tout un vocabulaire à connaitre avant de commencer à vouloir y jouer en vrai ou en online. Nous allons ici vous expliquer seulement les termes de bases et ceux ue nous allons utiliser au moins une fois dans ce blog mais sachez qu'il en existe bien plus que cela surtout quand on arrive à un niveau professionnel. Beaucoup de terme sont des anglisisme et il existe quasi tout le temps un équivalent français mais comme la plupart des sites, des livres, ou des vidéos utilisent ces anglisisme, nous allons aussi utiliser les termes anglais.</em></p>
+<p><em>Au poker, il y a tout un vocabulaire à connaitre avant de commencer à pouvoir y jouer réellement. Nous allons ici vous expliquer seulement les termes de bases et ceux que nous allons utiliser au moins une fois dans ce blog, mais sachez qu'il en existe bien plus que cela surtout lorsque l'on arrive à un niveau professionnel. Beaucoup de termes sont des anglicismes et il existe presque tout le temps un équivalent français, mais comme la plupart des sites, des livres, ou des vidéos utilisent ces anglicismes, nous allons aussi utiliser les termes anglais.</em></p>
 <h2>Lexique de base au poker</h2><ul>
 <li>Board : Ensemble des cartes communautaires visibles sur la table.</li>
 <li>Preflop : Commencement de la partie quand tous les joueurs reçoivent leurs cartes.</li>
@@ -14322,7 +14325,7 @@ Si après la “river” plusieurs joueurs sont encore en jeu, on entre dans la 
 <li><p>Main : Ensemble des cartes qui permette une combinaison à un joueur (dont les siennes)</p>
 </li>
 <li>Hauteur : Valeur d'une carte. (exemple roi, ou 9)</li>
-<li><p>Couleur : Symbole d'une carte. (exemple carreau, ou coeur)</p>
+<li><p>Couleur : Symbole d'une carte. (exemple carreaux, ou coeur)</p>
 </li>
 <li><p>Blind : Mise obligatoire versée par deux joueurs avant la distribution des cartes. Les joueurs de blind parlent en dernier lors du premier tour d'enchères. (preflop)</p>
 </li>
@@ -14330,25 +14333,25 @@ Si après la “river” plusieurs joueurs sont encore en jeu, on entre dans la 
 </li>
 </ul>
 <h2>Les mains au poker</h2><ul>
-<li><p>Hauteur : La plus faible des combinaisons de poker. Elle est constituée de... rien. Pas une paire, pas une suite, pas une couleur. On y ajoute généralement le nom de la carte la plus forte de la main.</p>
+<li><p>Hauteur : La plus faible des combinaisons de poker. Elle n'est constituée de... rien. Pas une paire, pas une suite, pas une couleur. On y ajoute généralement le nom de la carte la plus forte de la main.</p>
 </li>
-<li><p>Paire : La 2e plus faible des combinaisons de poker. Elle est constitué de deux carte qui ont la même hauteur. (exemple 9♦ et 9♥ forme une paire)</p>
+<li><p>Paire : La 2e plus faible des combinaisons de poker. Elle est constituée de deux cartes qui ont la même hauteur. (exemple 9♦ et 9♥ forment une paire)</p>
 </li>
-<li><p>Double paire : La 3e plus faible des combinaisons de poker. Elle est contitué de 2 paire, 2x deux cartes qui ont la même hauteur. (exemple 9♦ et 9♥ ET 7♠ et 7♦ forme une double paire)</p>
+<li><p>Double paire : La 3e plus faible des combinaisons de poker. Elle est contituée de 2 paire, 2x deux cartes qui ont la même hauteur. (exemple 9♦ et 9♥ et 7♠ et 7♦ forment une double paire)</p>
 </li>
-<li><p>Brelan : La 4e plus faibles des combinaisons de poker. Il est constitué de trois cartes de même hauteur. (exemple 9♦, 9♥ et 9♠ forme un brelan)</p>
+<li><p>Brelan : La 4e plus faible des combinaisons de poker. Il est constitué de trois cartes de même hauteur. (exemple 9♦, 9♥ et 9♠ forment un brelan)</p>
 </li>
-<li><p>Straight : La 5e plus faible des combinaisons de poker. Elle est constitué de cinq cartes consécutives formant une suite. (exemple 6♠, 7♦, 8♦, 9♥ et 10♥ forme une straight)</p>
+<li><p>Straight : La 5e plus faible des combinaisons de poker. Elle est constituée de cinque cartes consécutives formant une suite. (exemple 6♠, 7♦, 8♦, 9♥ et 10♥ forment une straight)</p>
 </li>
-<li><p>Flush : La 6e plus faible des combinaisons de poker. Elle est constitué de cinq cartes de même couleur. (exemple 2♥, 7♥, 5♥, Q♥, et A♥ forme une flush)</p>
+<li><p>Flush : La 6e plus faible des combinaisons de poker. Elle est constituée de cinque cartes de même couleur. (exemple 2♥, 7♥, 5♥, Q♥, et A♥ forment une flush)</p>
 </li>
-<li><p>Full Housse : La 7e plus faible des combinaisons de poker. Il est constitué d'un brelan et d'une paire. (exemple 2♦, 2♣, 8♦, 8♥, et 8♠ forme un full housse)</p>
+<li><p>Full Housse : La 7e plus faible des combinaisons de poker. Il est constitué d'un brelan et d'une paire. (exemple 2♦, 2♣, 8♦, 8♥, et 8♠ forment un full housse)</p>
 </li>
-<li><p>Carré : La 8e plus faibe des combinaisons de poker. Il est constitué de quatre cartes de même hauteur. (exemple 8♥, 8♦, 8♣, et 8♠ forme un carré)</p>
+<li><p>Carré : La 8e plus faibe des combinaisons de poker. Il est constitué de quatre cartes de même hauteur. (exemple 8♥, 8♦, 8♣, et 8♠ forment un carré)</p>
 </li>
-<li><p>Straight Flush : La 9e plus faible des combinaisons de poker. Elle est constitué de cinq cartes consécutives de la même couleur. (exemple 2♠, 3♠, 4♠, 5♠, et 6♠ forme une straight flush)</p>
+<li><p>Straight Flush : La 9e plus faible des combinaisons de poker. Elle est constituée de cinque cartes consécutives de la même couleur. (exemple 2♠, 3♠, 4♠, 5♠, et 6♠ forment une straight flush)</p>
 </li>
-<li><p>Straight Flush Royale : La plus forte des combinaisons de poker. Elle est constitué de cinq cartes consécutives de la même couleur, dont la plus haute est un as. (exemple 10♣, J♣, Q♣, K♣, et A♣ forme une straight flush royale)</p>
+<li><p>Straight Flush Royale : La plus forte des combinaisons de poker. Elle est constituée de cinque cartes consécutives de la même couleur, dont la plus haute est un as. (exemple 10♣, J♣, Q♣, K♣, et A♣ forment une straight flush royale)</p>
 </li>
 </ul>
 <h2>Les actions au poker</h2><ul>
@@ -14362,17 +14365,17 @@ Si après la “river” plusieurs joueurs sont encore en jeu, on entre dans la 
 </li>
 <li><p>Raize : Augmenter le prix à payer pour voir la carte suivante en misant plus que ce qu'un adversaire a misé lors du même tour. Pour relancer, il est nécessaire de miser au moins le double de la mise du joueur.</p>
 </li>
-<li><p>Bluff: Mise d'un joueur alors qu'il a une main moins bonne que celle qu'il représente ainsi, et dont le but est de faire coucher l'adversaire.</p>
+<li><p>Bluff: Mise d'un joueur alors qu'il possède une main moins bonne que celle qu'il représente. Ainsi et dont le but est de faire coucher l'adversaire.</p>
 </li>
-<li><p>All-in : Mise la totalité de ses jetons. SI deux joueurs all-in avant la river, les 2 joueurs dévoilent leur carte et le croupier ajoute les cartes qui manque au board pour arriver à la fin du tour.</p>
+<li><p>All-in : Mise la totalité de ses jetons. Si deux joueurs all-in avant la river, les 2 joueurs dévoilent leur carte et le croupier ajoute les cartes qui manque au board pour arriver à la fin du tour.</p>
 </li>
 </ul>
 <h2>Les positions au poker</h2><ul>
 <li><p>UTG : l'UTG (Under The Gun) est le premier joueur à parler au preflop, et qui se trouve donc juste après les blinds.</p>
 </li>
-<li><p>UTG+1 : Il se trouve gauche du joueur UTG et est donc le 2e joueur à parler au preflop.</p>
+<li><p>UTG+1 : Il se trouve à gauche du joueur UTG et est donc le 2e joueur à parler au preflop.</p>
 </li>
-<li><p>UTG+2 : Il se trouve gauche du joueur UTG+1 et est donc le 3e joueur à parler au preflop. etc... pour UTG+3, UTG+4... (selon le nombre de joueurs à la table)</p>
+<li><p>UTG+2 : Il se trouve à gauche du joueur UTG+1 et est donc le 3e joueur à parler au preflop. etc... pour UTG+3, UTG+4... (selon le nombre de joueurs à la table)</p>
 </li>
 <li><p>Hi-jack : Il se trouve à droite du Cut-Off et à gauche du dernier UTG, le joueur parle après les UTG.</p>
 </li>
@@ -14382,7 +14385,7 @@ Si après la “river” plusieurs joueurs sont encore en jeu, on entre dans la 
 </li>
 <li><p>Small Blind : Il se trouve à droite de la big blind, il parle en avant dernier au preflop mais le premier à parler pendant le flop, a turn, et la river. C'est la plus petite des deux blinds misées avant la distribution des cartes. Son montant est généralement égal à la moitié de celui de la big blind.</p>
 </li>
-<li><p>Big Blind : Il se trouve à droite de l'UGT, il parle en dernier au preflop mais le deuxième à parler pendant le flop, a turn, et la river. C'est la plus grosse des deux blinds misées avant la distribution des cartes. Son montant est généralement égal au double de celui de la small blind.</p>
+<li><p>Big Blind : Il se trouve à droite de l'UGT, il parle en dernier au preflop mais est le deuxième à parler pendant le flop, la turn, et la river. C'est la plus grosse des deux blinds misées avant la distribution des cartes. Son montant est généralement égal au double de celui de la small blind.</p>
 </li>
 </ul>
 
@@ -14390,48 +14393,48 @@ Si après la “river” plusieurs joueurs sont encore en jeu, on entre dans la 
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="3)-Probabilit&#233;-simple">3) Probabilit&#233; simple<a class="anchor-link" href="#3)-Probabilit&#233;-simple">&#182;</a></h1><hr>
-<p><em>Avant de commencer à voir les probabilité de gagner ou pas selon plusieurs critères leur d'une partie au poker voyant d'abbord quelques probiblités de base. Par exemple la probabilité d'avoir une paire au preflop ou d'avoir une straight au flop, ou un brelan à la turn etc...</em></p>
-<h3><strong>Preflop</strong></h3><p>Commençons avec le commencement d'une partie, le preflop. Quelle la probabilité d'avoir une paire ? D'avoir 2 carte de même couleur ? 2 cartes qui se suivent ?</p>
-<p>Avant la distribution des cartes au preflop, toutes les cartes sont encore dans le paquet donc 52. Une fois la première carte distribuée, il n'en reste plsu que 51. La formule pour avoir la probablité d'avoir la/les cartes qui nous intéresse est au final 1 - la probablité de ne pas l'avoir ce qui représente x/51.</p>
-<blockquote><p>Prenons la probabilité d'avoir une paire. Dans ces 52 cartes il y a en tout 13 paires (paire de 2, de 3, de 4, de 5, de 6, de 7, de 8, de 9, de 10, de Valet, de Dame, de Roi, et d'As). La probabilité d'avoir une paire au preflop est 1 - la probabilité de ne pas avoir une paire. Une fois la première carte distribuée, il reste donc 51 cartes dans le paquet, et il y n'a que 3 cartes qui puissent faire pair avec celle distribuée (si la première carte est le 9♥, il n'y a que le 9♦, le 9♣, et le 9♠ pour avoir une paire). La probabilité de ne pas avoir une paire est donc <strong>48/51 ≈ 0.9412</strong>. Donc la probabilité d'avoir une paire au preflop est <strong>1 - 48/51 ≈ 0.0588</strong> soit 1/17 ou encore environs <strong>5.9%</strong>.</p>
-<p>Pour la probablité d'avoir deux cartes de même couleur on va faire le même procédée. une fois la première carte distribuée, il ne reste que plus 12 cartes de même couleur (si la première carte est le 4♣, il reste toutes les cartes de couleur ♣ : 2♣, 3♣, 5♣, 6♣, 7♣, 8♣, 9♣, 10♣, T♣, D♣, K♣, et A♣). La probablité de ne pas avoir une carte de même couleur est donc <strong>39/51 ≈ 0.74</strong>. Donc la probabilité d'avoir 2 carte de même couleur est donc <strong>1 - 39/51 ≈ 0.2352</strong> soit 4/17 ou encore environs <strong>23.5%</strong>.</p>
-<p>Pour la probablité d'avoir deux cartes qui se suivent toujours pareil. une fois la première carte distribuée, il n'y a que 8 cartes qui suivent celle distribuée (si la première carte est le 4♣, il reste toutes les cartes de hauteur 3 et 5 : 3♣, 3♥, 3♠, 3♦, 4♣, 4♥, 4♦, et 4♣). La probablité de ne pas avoir une carte qui suive la première est donc <strong>43/51 ≈ 0.8431</strong>. Donc la probabilité d'avoir 2 carte qui se suivent au preflop est <strong>1 - 43/51 ≈ 0.1568</strong> soit <strong>8/51</strong> ou encore environs <strong>15.7%</strong>.</p>
+<h1 id="3)-Probabilit&#233;s-simples">3) Probabilit&#233;s simples<a class="anchor-link" href="#3)-Probabilit&#233;s-simples">&#182;</a></h1><hr>
+<p><em>Avant de commencer à voir les probabilités de gagner ou pas selon plusieurs critères lors d'une partie au poker, voyons d'abbord quelques probabilités de base. Par exemple, la probabilité d'avoir une paire au preflop ou d'avoir une straight au flop, ou un brelan à la turn, etc...</em></p>
+<h3><strong>Preflop</strong></h3><p>Commençons avec le commencement d'une partie, le preflop. Quelle est la probabilité d'avoir une paire ? D'avoir 2 cartes de même couleur ? 2 cartes qui se suivent ?</p>
+<p>Avant la distribution des cartes au preflop, toutes les cartes sont encore dans le paquet, (donc 52). Une fois la première carte distribuée, il n'en reste plus que 51. La formule pour avoir la probablité d'avoir la/les cartes qui nous intéresse(nt) au final est 1 - la probablité de ne pas l'avoir ce qui représente x/51.</p>
+<blockquote><p>Prenons la probabilité d'avoir une paire. Dans ces 52 cartes, il y a en tout 13 paires (paire de 2, de 3, de 4, de 5, de 6, de 7, de 8, de 9, de 10, de Valet, de Dame, de Roi, et d'As). La probabilité d'avoir une paire au preflop est 1 - la probabilité de ne pas avoir une paire. Une fois la première carte distribuée, il reste donc 51 cartes dans le paquet, et il y n'a que 3 cartes qui puissent faire paire avec celle distribuée (si la première carte est le 9♥, il n'y a que le 9♦, le 9♣, et le 9♠ pour avoir une paire). La probabilité de ne pas avoir une paire est donc <strong>48/51 ≈ 0.9412</strong>. Donc la probabilité d'avoir une paire au preflop est <strong>1 - 48/51 ≈ 0.0588</strong> soit 1/17 ou encore environ <strong>5.9%</strong>.</p>
+<p>Pour la probablité d'avoir deux cartes de même couleur, on va faire le même procédé. Une fois la première carte distribuée, il ne reste que plus 12 cartes de même couleur (si la première carte est le 4♣, il reste toutes les cartes de couleur ♣ : 2♣, 3♣, 5♣, 6♣, 7♣, 8♣, 9♣, 10♣, T♣, D♣, K♣, et A♣). La probablité de ne pas avoir une carte de même couleur est donc <strong>39/51 ≈ 0.74</strong>. Donc la probabilité d'avoir 2 carte de même couleur est donc <strong>1 - 39/51 ≈ 0.2352</strong> soit 4/17, ou encore environ <strong>23.5%</strong>.</p>
+<p>Pour la probablité d'avoir deux cartes qui se suivent, une fois la première carte distribuée, il n'y a que 8 cartes qui peuvent la suivre (si la première carte est le 4♣, il reste toutes les cartes de hauteur 3 et 5 : 3♣, 3♥, 3♠, 3♦, 4♣, 4♥, 4♦, et 4♣). La probablité de ne pas avoir une carte qui suive la première est donc <strong>43/51 ≈ 0.8431</strong>. Donc la probabilité d'avoir 2 cartes qui se suivent au preflop est <strong>1 - 43/51 ≈ 0.1568</strong> soit <strong>8/51</strong> ou encore environ <strong>15.7%</strong>.</p>
 </blockquote>
-<h3><strong>Flop</strong></h3><p>Une fois les cartes du preflop distribuée au joueur et reste donc 50 carte dans le paquet et à la fin du flop il en restera 47. A partir de ça nous pouvons calculer quelle est la probabilité d'avoir une main au flop. En effet à partir du flop toutes les mains du poker sont possibles. Pour cela nous allons uiliser une autre tecnhique qui sera plus simple pour nous. Nous allons compter le nombre de chemin posssible qui ammène à la main que nous voulons puis nous diviserons ce nombre par le nombre maximum de maon possible au flop. Ce nombre de chemin maximum est de 50C3 = 19 600 mains possible.</p>
-<blockquote><p>Commençons avec la paire, quelle est la probabilité d'avoir une et une seule paire au flop avec 2 carte de hauteur différente hauteur au preflop ? Pour cela nous allons calculer le nombre de chemin possible qui ammène à une et une seule paire puis nous diviserons ce nombre par 19 600 pour avoir un pourcentage. Avec la paire on a 6 choix (6 cartes) et comme on ne veut qu'une et une seule paire ont choisi 2 autre cartes totalement différente parmit les 12 autres hauteurs. Cela nous donne <strong>6 * 12C2 * 4C1 * 4C1  = 6 336.</strong> La probabilité est donc <strong>6 336/19 600 ≈ 0.3232</strong> soit environs <strong>32%</strong>.</p>
-<p>Avec la double paire, il faut tiré 1 carte parmis les 3 qui reste pour la première paire puis une autre carte parmi les autres pour la deuxième paire et une autre carte totalement différentes parmi les 44 cartes restante. Cela nous donne <strong>3C1 * 3C1 * 44C1 = 396</strong> la probabilité est donc de <strong>396/19 600 ≈ 0.0202</strong> soit environs <strong>2%</strong></p>
-<p>Avec le brelan on a 2 possiblité, soit on a déjà une paire est donc on attend juste 1 carte de même hauteur, soit on a 2 cartes différentes et on en a attend 2 de même hauteur qu'une des notre. Commençons avec le faite qu'au preflop on a eu une paire et donc qu'on attende juste une et une seul carte de même hauteur. Il faut tiré 1 carte parmi les 2 cartes qui nous intéresse et 2 autres cartes totalement différentes parmit les 48 restantes. Cela nous donne <strong>2C1 * 48C2 = 2256</strong>. la probabilité est donc de <strong>2256/19 600 ≈ 0.1151</strong> soit environs <strong>11.5%</strong>. Maintenant si au preflop nous avons 2 cartes de hauteurs différentes, quelle est la probabilité d'avoir un brelan avec une des deux cartes ? Pour cela il faut tirer 2 cartes parmis les 3 pour la première carte ou 2 cartes sur les 3 cartes pour la deuxième carte et enfin 1 carte d'hauteur différente parmis celle qui reste. Cela nous donne <strong>(3C2 + 3C2) * 44C1 = 264</strong>. La probabilité est donc de <strong>264/19600 ≈ 0.0135</strong> soit environs <strong>1.3%</strong>.</p>
+<h3><strong>Flop</strong></h3><p>Une fois les cartes du preflop distribuées au joueur, il reste donc 50 cartes dans le paquet, et à la fin du flop il en restera 47. A partir de ça, nous pouvons calculer quelle est la probabilité d'avoir une main au flop. En effet, à partir du flop toutes les mains du poker sont possibles. Pour cela nous allons uiliser une autre tecnhique qui sera plus simple pour nous. Nous allons compter le nombre de chemins posssibles qui amènent à la main que nous voulons, puis nous diviserons ce nombre par le nombre maximum de mains possibles au flop. Ce nombre de chemins maximum est de 50C3 = 19 600 mains possible.</p>
+<blockquote><p>Commençons avec la paire, quelle est la probabilité d'avoir une et une seule paire au flop avec 2 cartes de hauteur différente au preflop ? Pour cela nous allons calculer le nombre de chemin possible qui amènent à une et une seule paire, puis nous diviserons ce nombre par 19 600 pour avoir un pourcentage. Avec la paire, on a 6 choix (6 cartes), et comme on ne veut qu'une et une seule paire ont choisi 2 autre cartes totalement différentes parmi les 12 autres hauteurs. Cela nous donne <strong>6 * 12C2 * 4C1 * 4C1  = 6 336.</strong> La probabilité est donc <strong>6 336/19 600 ≈ 0.3232</strong> soit environ <strong>32%</strong>.</p>
+<p>Avec la double paire, il faut tirer 1 carte parmi les 3 qui restent pour la première paire puis une autre carte parmi les autres pour la deuxième paire et une autre carte totalement différente parmi les 44 cartes restante. Cela nous donne <strong>3C1 * 3C1 * 44C1 = 396</strong> la probabilité est donc de <strong>396/19 600 ≈ 0.0202</strong> soit environ <strong>2%</strong></p>
+<p>Avec le brelan, on a 2 possiblités, soit on a déjà une paire est donc on attend juste 1 carte de même hauteur, soit on a 2 cartes différentes et on en attend 2 de même hauteur qu'une des notre. Commençons avec le fait qu'au preflop, on a eu une paire et donc qu'on attende juste une et une seul carte de même hauteur. Il faut tirer 1 carte parmi les 2 cartes qui nous intéresse et 2 autres cartes totalement différentes parmi les 48 restantes. Cela nous donne <strong>2C1 * 48C2 = 2256</strong>. la probabilité est donc de <strong>2256/19 600 ≈ 0.1151</strong> soit environ <strong>11.5%</strong>. Maintenant si au preflop nous avons 2 cartes de hauteurs différentes, quelle est la probabilité d'avoir un brelan avec une des deux cartes ? Pour cela il faut tirer 2 cartes parmi les 3 pour la première carte ou 2 cartes sur les 3 cartes pour la deuxième carte et enfin 1 carte d'hauteur différente parmi celle qui reste. Cela nous donne <strong>(3C2 + 3C2) * 44C1 = 264</strong>. La probabilité est donc de <strong>264/19600 ≈ 0.0135</strong> soit environ <strong>1.3%</strong>.</p>
 <p>Passons maintenant avec la straight, pour avoir une straight il faut obligatoirement avoir deux cartes qui se suivent. Pour cela il faut tirer 3 fois 1 carte parmi les 4 cartes qui composent la hauteur qui nous intéresse. Cela nous donne <strong></strong></p>
-<p>Pour calculer la probabilité d'avoir un flush il faut de base avoir deux cartes de même couleur. Il ensuite il faut tirer 3 cartes parmis les 11 autres cartes de même couleur. Cela nous donne <strong>11C3 = 165</strong>. La probabilité est donc de <strong>165/19600 ≈ 0.0084</strong> soit environs <strong>0.8%</strong>.</p>
-<p>Avec le full housse nous avons encore deux possibiltés. Soit au preflop nous avons une paire et donc nous attendons 3 cartes de même hauteur au flop. Soit nous avons deux cartes de hauteur différente et dans ce cas nous attendons un carte de même hauteur que la première, et deux autres carte de même hauteur que la deuxième. Si nous avons une paire, il faut tirer 3 cartes de même hauteur parmi les 12 autres hauteurs qu'il nous reste. Cela nous donne <strong>12 * 4C3 = 48</strong>. La probabilité d'avoir un full housse en ayant un paire est donc de <strong>48/19 600 ≈ 0.0024</strong> soit environs <strong>2.4%</strong>. Si maintenant nous avons deux cartes de hauteur différent, il faut tirer une carte de même hauteur que la première et deux carte de même hauteur que la deuxième. Cela nous donne <strong>3C1 * 3C2 = 9</strong>. La probabilité d'avoir un full housse en ayant deux carte de hauteur différentes est donc de <strong>9/19 600 ≈ 0.0005</strong> soit environs <strong>0.05%</strong>.</p>
-<p>Avec le carré il de obligatoirement qu'au preflop nous ayant une paire. Ensuite il fau tirer 2 cartes parmis les 2 qui reste de même hauteur que notre paire et une carte totalement différente parmis celle qui ne nous intéresse pas. Cela nous donne <strong>2C2 * 48C1 = 48</strong>. La probabilité d'avoir un carré est donc de <strong>48/19 600 ≈ 0.0024</strong> soit environs <strong>0.2%</strong>.</p>
+<p>Pour calculer la probabilité d'avoir un flush il faut de base avoir deux cartes de même couleur. Ensuite, il faut tirer 3 cartes parmi les 11 autres cartes de même couleur. Cela nous donne <strong>11C3 = 165</strong>. La probabilité est donc de <strong>165/19600 ≈ 0.0084</strong> soit environ <strong>0.8%</strong>.</p>
+<p>Avec le full housse nous avons encore deux possibiltés. Soit au preflop nous avons une paire et donc nous attendons 3 cartes de même hauteur au flop. Soit nous avons deux cartes de hauteur différente et dans ce cas nous attendons un carte de même hauteur que la première, et deux autres carte de même hauteur que la deuxième. Si nous avons une paire, il faut tirer 3 cartes de même hauteur parmi les 12 autres hauteurs qu'il nous reste. Cela nous donne <strong>12 * 4C3 = 48</strong>. La probabilité d'avoir un full housse en ayant un paire est donc de <strong>48/19 600 ≈ 0.0024</strong> soit environ <strong>2.4%</strong>. Si maintenant nous avons deux cartes de hauteur différente, il faut tirer une carte de même hauteur que la première et deux carte de même hauteur que la deuxième. Cela nous donne <strong>3C1 * 3C2 = 9</strong>. La probabilité d'avoir un full housse en ayant deux cartes de hauteur différentes est donc de <strong>9/19 600 ≈ 0.0005</strong> soit environ <strong>0.05%</strong>.</p>
+<p>Avec le carré, il faut obligatoirement qu'au preflop nous ayons une paire. Ensuite il faut tirer 2 cartes parmi les 2 qui restent de même hauteur que notre paire et une carte totalement différente parmi celle qui ne nous intéresse pas. Cela nous donne <strong>2C2 * 48C1 = 48</strong>. La probabilité d'avoir un carré est donc de <strong>48/19 600 ≈ 0.0024</strong> soit environ <strong>0.2%</strong>.</p>
 </blockquote>
-<h3><strong>Turn</strong></h3><p>Une fois le flop distribué, il reste 47 cartes dans le paquet. À la turn, il n'y qu'une seul carte de tiré ce qui fait 47C1 = 47 mains possibles à la turn.</p>
-<blockquote><p>Pour la paire, lorsque nous avons donc 2 cartes différentes au preflop et qu'au flop aucune carte nous a donné une paire, ou une meilleure mains que la paire, nous avons 6 cartes qui peuvent nous faire faire une paire. Ce qui nous donne <strong>6/47 ≈ 0.1278</strong> soit <strong>12.8%</strong>.</p>
-<p>Pour la double paire, il que le joueur ai une paire. Il faut donc une carte qui face paire avec l'autre carte. Ce qui nous donne <strong>3/47 ≈ 0.0638</strong> soit environs <strong>6.4%</strong>.</p>
-<p>Pour le brelan, il faut que le joueur ai une paire. Il faut donc un carte de même hauteur que la paire. Ce qui nous donne <strong>2/47 ≈ 0.0426</strong> soit environs <strong>4.3%</strong>.</p>
-<p>Pour la straight, il faut que le joueur ai 4 cartes qui se suivent. Il faut donc une carte parmi la hauteur qui feraient une suite de 5. Ce qui nous donne <strong>8/47 ≈ 0.1702</strong> soit environs <strong>17%</strong>.</p>
-<p>Pour la flush, il faut que le joueur ai 4 cartes de même couleur. Il faut donc une carte parmi toutes les autres cartes de même couleur. Ce qui nous donne <strong>9/47 ≈ 0.1915</strong> soit environs <strong>19.1%</strong>.</p>
-<p>Pour le full housse, il faut soit que le joueur est déjà une double pair soit un brelan. Dans le premier cas il faut une carte parmi les 2 hauteurs pour former un brelan. Ce qui nous donne <strong>4/47 ≈ 0.0851</strong> soit environs <strong>8.51%</strong>. Dans le deuxième cas il faut une carte parmit les 6 qui feraient une paire avec les 2 autres cartes. Ce qui nous donne <strong>6/47 ≈ 0,1277</strong> soit environs <strong>12.8%</strong>.</p>
-<p>Pour le carré, il que le joueur est déjà un brelan. Il faut la seule carte de même hauteur que les 3 cartes déjà en jeu. Ce qui nous donne <strong>1/47 ≈ 0.0213</strong> soit environs <strong>2.1%</strong>.</p>
-<p>Pour la straight flush, il que le joueur ai 4 cartes même couleur et qui forment une suite de 4 avec les cartes du joueur. Il faut donc une carte de même couleur et qui forme une suite de 5. Ce qui nous donne <strong>1/47 ≈ 0.0213</strong> soit envrions <strong>2.1%</strong></p>
-<p>Pour la straight flush royal, le pourcentage est le même que celui de la straight flush car seul le pourcentage d'avoir une suite 10, J, D, K, A change et est plus rare mais ici nous calculons le poucentage d'avoir tel ou tel mains sans prendre en compte le poucentage d'avoir tel ou tel configurations de base ! Le pourcentage d'avoir une straight flush royale est donc d'environs <strong>2.1%</strong>.</p>
+<h3><strong>Turn</strong></h3><p>Une fois le flop distribué, il reste 47 cartes dans le paquet. À la turn, il n'y qu'une seule carte de tirée, ce qui fait 47C1 = 47 mains possibles à la turn.</p>
+<blockquote><p>Pour la paire, lorsque nous avons donc 2 cartes différentes au preflop et qu'au flop aucune carte nous a donné une paire, ou une meilleure main que la paire, nous avons 6 cartes qui peuvent nous faire une paire. Ce qui nous donne <strong>6/47 ≈ 0.1278</strong> soit <strong>12.8%</strong>.</p>
+<p>Pour la double paire, il que le joueur ai une paire. Il faut donc une carte qui face paire avec l'autre carte. Ce qui nous donne <strong>3/47 ≈ 0.0638</strong> soit environ <strong>6.4%</strong>.</p>
+<p>Pour le brelan, il faut que le joueur ai une paire. Il faut donc un carte de même hauteur que la paire. Ce qui nous donne <strong>2/47 ≈ 0.0426</strong> soit environ <strong>4.3%</strong>.</p>
+<p>Pour la straight, il faut que le joueur ai 4 cartes qui se suivent. Il faut donc une carte parmi la hauteur qui feraient une suite de 5. Ce qui nous donne <strong>8/47 ≈ 0.1702</strong> soit environ <strong>17%</strong>.</p>
+<p>Pour la flush, il faut que le joueur ai 4 cartes de même couleur. Il faut donc une carte parmi toutes les autres cartes de même couleur. Ce qui nous donne <strong>9/47 ≈ 0.1915</strong> soit environ <strong>19.1%</strong>.</p>
+<p>Pour le full housse, il faut soit que le joueur ai déjà une double paire, soit un brelan. Dans le premier cas, il faut une carte parmi les 2 hauteurs pour former un brelan. Ce qui nous donne <strong>4/47 ≈ 0.0851</strong> soit environ <strong>8.51%</strong>. Dans le deuxième cas, il faut une carte parmi les 6, qui feraient une paire avec les 2 autres cartes. Ce qui nous donne <strong>6/47 ≈ 0,1277</strong> soit environ <strong>12.8%</strong>.</p>
+<p>Pour le carré, il faut que le joueur ai déjà un brelan. Il faut que la seule carte de même hauteur que les 3 cartes soit déjà en jeu. Ce qui nous donne <strong>1/47 ≈ 0.0213</strong> soit environ <strong>2.1%</strong>.</p>
+<p>Pour la straight flush, il que le joueur ai 4 cartes même couleur  qui forment une suite de 4 avec les cartes du joueur. Il faut donc une carte de même couleur et qui forme une suite de 5. Ce qui nous donne <strong>1/47 ≈ 0.0213</strong> soit environ <strong>2.1%</strong></p>
+<p>Pour la straight flush royal, le pourcentage est le même que celui de la straight flush car seul le pourcentage d'avoir une suite 10, J, D, K, A change et est plus rare, mais ici nous calculons le poucentage d'avoir tel ou tel mains sans prendre en compte le poucentage d'avoir tel ou tel configurations de base ! Le pourcentage d'avoir une straight flush royale est donc d'environ <strong>2.1%</strong>.</p>
 </blockquote>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="4)-OUTS">4) OUTS<a class="anchor-link" href="#4)-OUTS">&#182;</a></h1><hr>
-<p><em>Les out sont en fait l'ensemble des cartes qui, si elles étaient dévoilées, pourrait permettre à un joueur d'avoir une meilleure main que celle qu'il a actuellement. Ce calcul est utilisé par tous les joueurs expérimenté pour savoir combien ils ont de chance de gagner (il en existe d'autre à combiné avec celui-là, mais ce calcul est primordiale.). Pour compter les outs, il faut compter le nombre de cartes qui nous feraient avoir une meilleure main. Par exemple, au preflop un joueur reçois 7♦ et 8♣ et qu'au le flop est composé de 9♣, 4♦, et K♠. Nous pouvons voir qu'une straight est possible (en général, on cherche à avoir une straight, une flush, ou au moins un carré, un brelan, ou un full housse, on ne comptera pas les paires, et les doubles paires, car ces mains ne sont pas assez fortes pour avoir un impact sur nos décisions). Donc pour avoir une straight il faut qu'un 5 et un 6 tombe à la turn et à la river. Étant donné qu'aucune de ces cartes n'a été encore dévoilé, on suppose qu'il y a les 4 cartes de 5, et les 4 cartes de 6 ce qui fait en tout 8 cartes et donc 8 outs.</em> 
+<h1 id="4)-Outs">4) Outs<a class="anchor-link" href="#4)-Outs">&#182;</a></h1><hr>
+<p><em>Les outs sont l'ensemble des cartes qui, si elles étaient dévoilées, pourraient permettre à un joueur d'avoir une meilleure main que celle qu'il a actuellement. Ce calcul est utilisé par tous les joueurs expérimenté pour savoir combien ils ont de chance de gagner (il en existe d'autre à combiné avec celui-là, mais ce calcul est primordial). Pour compter les outs, il faut compter le nombre de cartes qui nous feraient avoir une meilleure main. Par exemple, au preflop un joueur reçoit 7♦ et 8♣ et le flop est composé d'un 9♣, 4♦, et K♠. Nous pouvons voir qu'une straight est possible (en général, on cherche à avoir une straight, un flush, ou au moins un carré, un brelan, ou un full housse, on ne comptera pas les paires, et les doubles paires, car ces mains ne sont pas assez fortes pour avoir un impact sur nos décisions). Pour avoir une straight, il faut qu'un 5 et un 6 tombent à la turn et à la river. Étant donné qu'aucune de ces cartes n'a été encore dévoilée, on suppose qu'il y a les 4 cartes de 5, et les 4 cartes de 6 ce qui fait en tout 8 cartes et donc 8 outs.</em> 
 <br><br></p>
-<p>Afin de calculer notre probabilité d'avoir un out, ils nous faut deux données : la phase de jeu dans laquelle ont se trouve et les cartes déja en main.</p>
-<p>Par exemple dans le cas d'un flop, nous avons deux cartes en mains et disons que nous avons 8 possibilitées d'out. Afin de calculer la probabilité d'avoir un out nous devons prendre en compte le fait que nous possédons déja 2 cartes et que le flop est composé de 3 cartes, nous allons donc soustraire ces 5 cartes en tout au paquet de 52 cartes, ce qui nous fait 47.
+<p>Afin de calculer notre probabilité d'avoir un out, ils nous faut deux données : la phase de jeu dans laquelle on se trouve et les cartes déja en main.</p>
+<p>Par exemple dans le cas d'un flop, nous avons deux cartes en main et disons que nous avons 8 possibilitées d'out. Afin de calculer la probabilité d'avoir un out, nous devons prendre en compte le fait que nous possédons déjà 2 cartes et que le flop est composé de 3 cartes, nous allons donc soustraire ces 5 cartes en tout au paquet de 52 cartes, ce qui nous fait 47.
 Ce qui nous permet d'avoir le calcul suivant <strong>8/47 = 0,1702</strong> nous avons donc environ <strong>17%</strong> de chance d'avoir un out dans le cas présent.</p>
-<p>Dans le cas de la river, il faut prendre en compte que le turn nous enleve une carte de plus par rapport au flop ce qui nous ramène à 46 cartes, en partant du principe que nous avons encore 8 out possible on fait le calcul suivant : <strong>8/46 = 0,1739</strong> soit environ <strong>17,4%</strong>.</p>
-<p>Le dernier cas étudié, est le calcul du pourcentage de chance de toucher à la turn ET à la river, nous devons donc faire : probabilité à la turn + probabilités à la river - ( la probabilité à la turn <em> probabilités à la river ) ce qui nous fait <strong>8/47 + 8/46 - ( 8/47 </em> 8/46 ) = 0,3145&lt;/strong&gt; soit à peu pret <strong>31,5%</strong>.</p>
-<p>Comme nous pouvons le voir la formule est donc, le nombre de cartes en main que l'on notera "m", le nombre de cartes dans le paquet noté "p" et le nombre d'out possibles notés "o".<br>
+<p>Dans le cas de la river, il ne faut prendre en compte que le turn, qui nous enleve une carte de plus par rapport au flop, ce qui nous ramène à 46 cartes, en partant du principe que nous avons encore 8 outs possible, on fait le calcul suivant : <strong>8/46 = 0,1739</strong> soit environ <strong>17,4%</strong>.</p>
+<p>Le dernier cas étudié est le calcul du pourcentage de chance de toucher à la turn et à la river, nous devons donc faire : probabilité à la turn + probabilités à la river - ( la probabilité à la turn <em> probabilités à la river ) ce qui nous fait <strong>8/47 + 8/46 - ( 8/47 </em> 8/46 ) = 0,3145&lt;/strong&gt; soit à peu pret <strong>31,5%</strong>.</p>
+<p>Comme nous pouvons le voir, la formule est donc le nombre de cartes en main que l'on notera "m", le nombre de cartes dans le paquet noté "p" et le nombre d'out possibles notés "o".<br>
 Ce qui nous donne P(out) = o/(p-m).</p>
 
 </div>
@@ -14445,12 +14448,24 @@ Ce qui nous donne P(out) = o/(p-m).</p>
 <li><em>La taille du pot avec la mise de votre adversaire</em></li>
 </ul>
 <p><br></p>
-<p>Pour calculer la cote du pot il faut pour cela diviser la taille globale du pot par la taille de la mise. Avec un pot globale 90€ et une mise à 30€ cela nous donne 90/30 (noté plus généralement 90:30) = 1/3 noté 3:1. Ici la cote est donc de 3 contre 1. Une fois cela on peut convertir ce ratio en poucentage. Par exemple si là nous payont alors le pot globale sera de 120€, et en faisant 30/120 = 0.25 soit 25% ce qui signifie que nous devons espérer devoir toucher nos outs à au moins 25% pour que ça sois rentable.</p>
-<p>En effet nous pouvons faire cette comparaison rapide pour prendre des décisons rapidement :</p>
+<p>Pour calculer la cote du pot il faut pour cela diviser la taille globale du pot par la taille de la mise. Avec un pot global de 90€ et une mise à 30€, cela nous donne 90/30 (noté plus généralement 90:30) = 1/3 noté 3:1. Ici la cote est donc de 3 contre 1. Une fois calculé, on peut convertir ce ratio en poucentage. Par exemple, si nous payont alors le pot global sera de 120€, en faisant 30/120 = 0.25 soit 25%, ce qui signifie que nous devons espérer devoir toucher nos outs à au moins 25% pour que ça soit rentable.</p>
+<p>En effet, nous pouvons faire cette comparaison rapide pour prendre des décisons rapidement :</p>
 <ul>
-<li>Si le pourcentage des outs est superieur à celle de la cote du pot alors on peut suivre sans payer trop chère.</li>
-<li>Si le poucentage des outs est inferieur à celle de la cote du pot alors l'adversiare nous fais payer trop chère, il vaut mieux se coucher.</li>
+<li>Si le pourcentage des outs est supérieur à celui de la cote du pot, alors on peut suivre sans payer trop cher.</li>
+<li>Si le poucentage des outs est inférieur à celui de la cote du pot, alors l'adversiare nous fait payer trop cher, il vaut mieux se coucher.</li>
 </ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="6)-&#201;quit&#233;">6) &#201;quit&#233;<a class="anchor-link" href="#6)-&#201;quit&#233;">&#182;</a></h1><hr>
+<p><em>L'équité sont en fait vos chances de remporter le pot comparées a celles de nos adversaire.</em>
+<br><br></p>
+<p>Afin de calculer cette équité, on doit prendre en compte le nombre total d'outs (cartes améliorantes), en effet le nombre d'outs représenté 4% de l'équité lorsuq'on le calcule au flop, et 2% lors de la trun. Afin donc de calculer ce pourcentage de chance, on fait le nombre d'outs fois 1,96 dans un flop et de 1,98 à la turn. 
+Cela nous donnera le pourcentage de chance de remporter le pot.</p>
+<p>Par exemple si on a un tirage couleur, on a 9 outs au flop donc <strong>9*1.98 = 17,82%</strong></p>
+<p>En revanche, ce calcul est ici simplifié. Pour calculer l'équité avec la plus grande précision, il faut tester toutes les mains possibles restantes, compter le nombre de fois où l'on gagne et divisé ce nombre par le nombre de mains totales testé. Si le joueur arrive à la river, il y a donc 46 cartes dans le paquet (52 - 2 au preflop - 3 au flop - 1 à la turn), et donc 46 mains restants possibles puisqu'il ne reste qu'une seul carte qui doit être tiré. Mais si le joueur n'est qu'au preflop il y a alors 50 cartes dans le paquet et 5 cartes doivent encore tirer, cela représente <strong>50C5 = 2 118 760 mains</strong> ! C'est pour des raisons évidentes que le calcul d'équité est exécuté par un ordinateur et non par un humain et c'est ce calcul que nous allons faire pour calculer les chances de victoire avec tel ou tel main.</p>
 
 </div>
 </div>
